@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 18:28:12 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/08 15:56:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/10 17:12:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Fixed::~Fixed()
 Fixed::Fixed(const Fixed &f)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->setRawBits(f.value);
+	*this = f;
 }
 
 Fixed &Fixed::operator=(const Fixed &other)
