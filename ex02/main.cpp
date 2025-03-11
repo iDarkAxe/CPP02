@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 16:30:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/11 11:58:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/11 12:06:03 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,22 @@ int main( void )
 
 	std::cout << std::endl;
 	std::cout << "Maximum testing" << std::endl;
+
 	std::cout << Fixed::max(Fixed(24), Fixed(23.4f)) << std::endl;
 	std::cout << Fixed::max(Fixed(24), Fixed(25.4f)) << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	std::cout << Fixed::max( b, a ) << std::endl;
+	std::cout << "a = " << a << std::endl;
+	std::cout << "b = " << b << std::endl;
+	std::cout << "max( a, b ) = " << Fixed::max( a, b ) << std::endl;
+	std::cout << "max( b, a ) = " << Fixed::max( b, a ) << std::endl;
 
 	std::cout << std::endl;
 	std::cout << "Minimum testing" << std::endl;
 	std::cout << Fixed::min(Fixed(24), Fixed(23.4f)) << std::endl;
 	std::cout << Fixed::min(Fixed(24), Fixed(25.4f)) << std::endl;
-	std::cout << Fixed::min( a, b ) << std::endl;
-	std::cout << Fixed::min( b, a ) << std::endl;
+	std::cout << "a = " << a << std::endl;
+	std::cout << "b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << Fixed::min( a, b ) << std::endl;
+	std::cout << "min( b, a ) = " << Fixed::min( b, a ) << std::endl;
 
 	std::cout << std::endl;
 	std::cout << "Comparison operators" << std::endl;
@@ -83,8 +88,8 @@ int main( void )
 	std::cout << "Arithmetic operators" << std::endl;
 	a = Fixed(10);
 	c = Fixed(20.40f);
-	// std::cout << (a + c) << std::endl;
-	// std::cout << (a - c) << std::endl;
+	std::cout << (a + c) << std::endl;
+	std::cout << (a - c) << std::endl;
 	std::cout << (a * c) << std::endl;
 	std::cout << (c / a) << std::endl;
 

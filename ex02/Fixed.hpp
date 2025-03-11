@@ -23,6 +23,8 @@ class Fixed{
 		// Arithmetic operators
 		Fixed operator*(const Fixed &other);
 		Fixed operator/(const Fixed &other);
+		Fixed operator+(const Fixed &other);
+		Fixed operator-(const Fixed &other);
 		// Binary operators
 		bool operator<(const Fixed &rhs) const;
 		bool operator>(const Fixed &rhs) const;

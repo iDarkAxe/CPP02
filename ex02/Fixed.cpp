@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 18:28:12 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/11 11:59:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/03/11 12:02:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,16 @@ Fixed Fixed::operator*(const Fixed &other)
 Fixed Fixed::operator/(const Fixed &other)
 {
   return (this->toFloat() / other.toFloat());
+}
+
+Fixed Fixed::operator+(const Fixed &other)
+{
+  return (this->toFloat() + other.toFloat());
+}
+
+Fixed Fixed::operator-(const Fixed &other)
+{
+  return (this->toFloat() - other.toFloat());
 }
 
 bool Fixed::operator<(const Fixed &rhs) const { return (this->value < rhs.value); }
