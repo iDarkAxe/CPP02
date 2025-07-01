@@ -1,15 +1,15 @@
 .PHONY : all clean fclean re bonus clean-lib clean-bin clean-obj debug debug-cc debug-print
 CXX = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 DEPENDANCIES = -MMD -MP
 NO_DIR = --no-print-directory
 MAKE := $(MAKE) -j $(NO_DIR)
 NAME = fixed_v3
 
 # Debugging flags
-CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1 -std=c++98
-CC_DEBUG = clang++
-CC_DEBUG_CFLAGS = -std=c++98 -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -fsanitize=address -fsanitize=leak
+CXXFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1 -std=c++98
+CXX_DEBUG = clang++
+CXX_DEBUG_CXXFLAGS = -std=c++98 -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -fsanitize=address -fsanitize=leak
 #############################################################################################
 #                                                                                           #
 #                                         DIRECTORIES                                       #
@@ -65,12 +65,12 @@ all:
 
 # Create $(NAME) executable
 $(NAME): $(OBJS) $(INCS)
-	$(CXX) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -o $(NAME) $(OBJS)
 
 # Custom rule to compilate all .cpp with there path
 $(P_OBJ)%.o: $(P_SRC)%.cpp $(INCS)
 	@mkdir -p $(dir $@)
-	$(CXX) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -c $< -o $@
 
 #############################################################################################
 #                                                                                           #
@@ -114,13 +114,13 @@ flcear: fclean
 #############################################################################################
 # Debugging rules
 debug:
-	@$(MAKE) $(NAME) CFLAGS="$(CFLAGS_DEBUG)"
+	@$(MAKE) $(NAME) CXXFLAGS="$(CXXFLAGS_DEBUG)"
 
 debug-checker:
-	@$(MAKE) checker CFLAGS="$(CFLAGS_DEBUG)"
+	@$(MAKE) checker CXXFLAGS="$(CXXFLAGS_DEBUG)"
 
 debug-cc:
-	@$(MAKE) $(NAME) CFLAGS="$(CC_DEBUG_CFLAGS)" CXX="$(CC_DEBUG)"
+	@$(MAKE) $(NAME) CXXFLAGS="$(CXX_DEBUG_CXXFLAGS)" CXX="$(CXX_DEBUG)"
 
 # Debugging print
 debug-print:
